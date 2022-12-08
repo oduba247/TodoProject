@@ -1,0 +1,18 @@
+{% extends 'todo_list2.html'%}
+{% block content %}
+    <h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus quisquam quae laborum amet iste!
+    </h1>
+    {% if request.user.is_authenticated %}
+        Hello {{request.user.username}}
+    {% else %}
+        Hello anonymous user
+    {% endif %}
+    <a href="/create">create a todo</a>
+
+        {% for todo in todo_list %}
+            <li  class= " container list-group-item list-group-item-success"><a href="/{{todo.id}}"> {{todo.name}} </a> it's due {{ todo.due_date}}</li>
+        {% endfor %}
+    
+
+{% endblock content %}
